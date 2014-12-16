@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr" ng-app="todoAngularApp">
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+  <script src="scripts/angular.js"></script>
+  <script src="scripts/angular-route.js"></script>
+  <script src="scripts/ui-bootstrap.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/controllers.js"></script>
+  <script src="app/todoStorage.js"></script>
+  <script src="app//filters/filters.js"></script>
+</head>
+<body>
+	<div class="site-wrapper">
+		<div class="site-wrapper-inner">
+			<div class="cover-container">
+				<div class="masthead clearfix">
+					<div class="inner">
+						<h3 class="masthead-brand">
+							TestAngularJs
+						</h3>
+						<nav>
+							<ul class="nav masthead-nav" id="filters">
+								<li>
+									Tâches :
+								</li>
+								<li>
+									<a ng-class="{selected: filtreStatus == 'active'}" href="#/todos/active">Actives</a>
+								</li>
+								
+								<li>
+									<a ng-class="{selected: filtreStatus == 'completed'}" href="#/todos/completed">Terminées</a>
+								</li>
+								
+								<li>
+									<a ng-class="{selected: filtreStatus == ''} " href="#/Todos">Toutes</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<div class="inner cover">
+					<!-- Place pour l'appli AngularJs -->
+  					<div ng-view></div>
+
+				</div>
+				<div class="mastfoot">
+					<div class="inner">
+						<p> Réalisé par Boris CARMARD à l'aide d'AngularJs, Bootstrap et le template Cover légèrement modifié.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

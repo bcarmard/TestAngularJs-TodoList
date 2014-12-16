@@ -1,0 +1,53 @@
+ <section>
+ 	<div class="inner cover">
+ 	<header>
+ 		<h1 class="cover-heading">Todo-List</h1>
+ 		<form role="form" ng-submit="addTodo()">
+ 			<div class="form-group">
+ 			<input placeholder="Qu'avez-vous à faire ?" 
+ 					ng-model="newTodo.text"
+ 					ng-model-options="{ getterSetter: true }"
+ 					class="form-control"
+ 					autofocus>
+ 					<p class="info">Appuyez sur "Entrée" pour valider </p>
+			</div>
+		</form>
+ 	</header>
+ 	<table class="table table-hover">
+ 		<thead>
+ 			<tr>
+ 				<th>
+ 					Todo
+ 				</th>
+ 				<th>
+ 					Statut
+ 				</th>
+ 				<th>
+ 					Actions
+ 				</th>
+ 			</tr>
+ 		</thead>
+ 		<tbody>
+	    	<tr ng-repeat="todo in listTodos | filter:filtreStatus">
+	      		<td>{{todo.text}}</td>
+	      		<td class="statusClass">{{todo.status | checkmark }}</td>
+	      		<td>
+		      		<button class="btn btn-success  btn-xs" type="button" ng-click="todoDone(todo)">
+		      			{{todo.status | doneButton }}
+		      		</button>
+		      	</td> 
+		      	<td>
+		      		<button class="btn btn-warning  btn-xs" type="button" ng-click="open(todo)">
+		      			Modifier
+		      		</button>
+		      	</td> 
+		      	<td>
+		      		<button class="btn btn-danger  btn-xs" type="button" ng-click="delTodo(todo)">
+		      			Supprimer
+		      		</button>
+		      	</td>
+	    	</tr>
+    	</tbody>
+	</table>
+	</div>
+</section>
